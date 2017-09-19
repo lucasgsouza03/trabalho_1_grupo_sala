@@ -8,10 +8,26 @@
 
 # B. not_bad
 # Dada uma string, procura a primeira ocorrência de 'not' e 'bad'
-# Se 'bad' aparece depois de 'not' troca 'not' ... 'bad' por 'good'
+# Se 'bad' aparece depois de 'not', troca 'not' ... 'bad' por 'good'
 # Assim 'This dinner is not that bad!' retorna 'This dinner is good!'
 def not_bad(s):
-  return
+  lista = s.split(" ")
+  for i in lista:
+    if i == "not":
+      id_not = lista.index(i)
+    elif i == "bad":
+      id_bad = lista.index(i)
+  if id_bad > id_not:
+     while id_bad >= id_not:
+       lista.pop(id_bad)
+       id_bad = id_bad - 1
+     lista.append('good') 
+     for i in lista:
+       d = ""
+       d = d + " " + i 
+     return d
+  else:
+     return s
 
 def test_ex02():
   print ('not_bad')
